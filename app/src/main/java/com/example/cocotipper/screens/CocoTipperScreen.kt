@@ -53,7 +53,7 @@ fun CocoTipperScreen(viewModel: CocoTipperViewModel) {
                 ) {
                     // Title text here
                     Text(
-                        text = "Lazy Tip",
+                        text = "Coco Tipper",
                         style = MaterialTheme.typography.headlineLarge.copy(
                             fontFamily = FontFamily.Cursive,
                             fontWeight = FontWeight.Bold,
