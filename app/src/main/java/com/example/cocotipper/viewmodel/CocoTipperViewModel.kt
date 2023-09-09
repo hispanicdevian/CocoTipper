@@ -4,7 +4,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import com.example.cocotipper.model.CocoTipperModel
 
-class TipCalculatorViewModel : ViewModel() {
+class CocoTipperViewModel : ViewModel() {
     val cocoTipperModel = mutableStateOf(CocoTipperModel())
 
     fun onBaseAmountChange(amount: String) {
