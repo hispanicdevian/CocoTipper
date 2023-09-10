@@ -20,6 +20,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
@@ -51,7 +52,10 @@ fun CocoTipperScreen(viewModel: CocoTipperViewModel) {
             verticalArrangement = Arrangement.SpaceEvenly
         ) {
 
-            Text("Coco Ping", fontSize = 24.sp, fontWeight = FontWeight.Bold)
+            Text("Coco Tipper",
+                fontSize = 50.sp,
+                fontWeight = FontWeight.Bold,
+                fontFamily = FontFamily.Cursive)
 
             Spacer(modifier = Modifier.height(16.dp))
 
