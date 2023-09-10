@@ -9,10 +9,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.LocalTextStyle
 import androidx.compose.material3.OutlinedTextField
@@ -29,7 +27,8 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.cocotipper.subscreens.TipButton
-import com.example.cocotipper.subscreens.TipResult
+import com.example.cocotipper.subscreens.TotalMoney
+import com.example.cocotipper.subscreens.TotalTip
 import com.example.cocotipper.viewmodel.CocoTipperViewModel
 
 @OptIn(ExperimentalComposeUiApi::class, ExperimentalMaterial3Api::class)
@@ -38,7 +37,6 @@ fun CocoTipperScreenLandscape(viewModel: CocoTipperViewModel) {
 
     val keyboardController = LocalSoftwareKeyboardController.current
     val cocoTipperModel = viewModel.cocoTipperModel.value
-    val scrollState = rememberScrollState()
 
     Box(
         modifier = Modifier
@@ -48,9 +46,8 @@ fun CocoTipperScreenLandscape(viewModel: CocoTipperViewModel) {
 
         Column(
             modifier = Modifier
-                .fillMaxSize()
-                .padding(8.dp)
-                .verticalScroll(state = scrollState),
+                .fillMaxWidth()
+                .padding(32.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.SpaceEvenly
         ) {
@@ -66,8 +63,7 @@ fun CocoTipperScreenLandscape(viewModel: CocoTipperViewModel) {
                 value = cocoTipperModel.baseAmount,
                 onValueChange = { viewModel.onBaseAmountChange(it) },
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(bottom = 8.dp),
+                    .fillMaxWidth(),
                 textStyle = LocalTextStyle.current,
                 singleLine = true,
                 placeholder = { Text("Enter Amount") },
@@ -92,7 +88,11 @@ fun CocoTipperScreenLandscape(viewModel: CocoTipperViewModel) {
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            TipResult(
+            TotalTip(
+                baseAmount = cocoTipperModel.baseAmount.toDoubleOrNull() ?: 0.0,
+                tipPercentage = cocoTipperModel.tipPercentage
+            )
+            TotalMoney(
                 baseAmount = cocoTipperModel.baseAmount.toDoubleOrNull() ?: 0.0,
                 tipPercentage = cocoTipperModel.tipPercentage
             )
