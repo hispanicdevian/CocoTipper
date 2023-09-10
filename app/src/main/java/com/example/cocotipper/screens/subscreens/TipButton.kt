@@ -14,7 +14,7 @@ fun TipButton(text: String, onClick: () -> Unit) {
     Button(
         onClick = onClick,
         modifier = Modifier
-            .padding(8.dp), // Add some padding for better appearance
+            .padding(8.dp),
         colors = ButtonDefaults.buttonColors(
             CocoShell,
         )
