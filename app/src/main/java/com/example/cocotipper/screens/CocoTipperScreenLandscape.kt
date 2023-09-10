@@ -9,8 +9,10 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.LocalTextStyle
 import androidx.compose.material3.OutlinedTextField
@@ -33,21 +35,22 @@ import com.example.cocotipper.viewmodel.CocoTipperViewModel
 @OptIn(ExperimentalComposeUiApi::class, ExperimentalMaterial3Api::class)
 @Composable
 fun CocoTipperScreenLandscape(viewModel: CocoTipperViewModel) {
-    val keyboardController = LocalSoftwareKeyboardController.current
 
+    val keyboardController = LocalSoftwareKeyboardController.current
     val cocoTipperModel = viewModel.cocoTipperModel.value
+    val scrollState = rememberScrollState()
 
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .padding(16.dp),
-        contentAlignment = Alignment.Center
+            .padding(16.dp)
     ) {
 
         Column(
             modifier = Modifier
-                .fillMaxWidth()
-                .padding(16.dp),
+                .fillMaxSize()
+                .padding(8.dp)
+                .verticalScroll(state = scrollState),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.SpaceEvenly
         ) {
