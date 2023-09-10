@@ -26,9 +26,9 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.cocotipper.subscreens.TipButton
-import com.example.cocotipper.subscreens.TotalMoney
-import com.example.cocotipper.subscreens.TotalTip
+import com.example.cocotipper.screens.subscreens.TipButton
+import com.example.cocotipper.screens.subscreens.TotalMoney
+import com.example.cocotipper.screens.subscreens.TotalTip
 import com.example.cocotipper.viewmodel.CocoTipperViewModel
 
 @OptIn(ExperimentalComposeUiApi::class, ExperimentalMaterial3Api::class)

@@ -26,9 +26,9 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.cocotipper.subscreens.TipButton
-import com.example.cocotipper.subscreens.TotalMoney
-import com.example.cocotipper.subscreens.TotalTip
+import com.example.cocotipper.screens.subscreens.TipButton
+import com.example.cocotipper.screens.subscreens.TotalMoney
+import com.example.cocotipper.screens.subscreens.TotalTip
 import com.example.cocotipper.viewmodel.CocoTipperViewModel
 
 @OptIn(ExperimentalComposeUiApi::class, ExperimentalMaterial3Api::class)
@@ -47,17 +47,17 @@ fun CocoTipperScreenLandscape(viewModel: CocoTipperViewModel) {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(32.dp),
+                .align(Alignment.TopCenter),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.SpaceEvenly
         ) {
 
             Text("Coco Tipper",
-                fontSize = 50.sp,
+                fontSize = 30.sp,
                 fontWeight = FontWeight.Bold,
                 fontFamily = FontFamily.Cursive)
 
-            Spacer(modifier = Modifier.height(16.dp))
+            Spacer(modifier = Modifier.height(8.dp))
 
             OutlinedTextField(
                 value = cocoTipperModel.baseAmount,
@@ -76,6 +76,8 @@ fun CocoTipperScreenLandscape(viewModel: CocoTipperViewModel) {
                 )
             )
 
+            Spacer(modifier = Modifier.height(8.dp))
+
             Row(
                 modifier = Modifier
                     .fillMaxWidth(),
@@ -86,12 +88,14 @@ fun CocoTipperScreenLandscape(viewModel: CocoTipperViewModel) {
                 TipButton(text = "25%", onClick = { viewModel.onTipPercentageChange(0.25) })
             }
 
-            Spacer(modifier = Modifier.height(16.dp))
+            Spacer(modifier = Modifier.height(8.dp))
 
             TotalTip(
                 baseAmount = cocoTipperModel.baseAmount.toDoubleOrNull() ?: 0.0,
                 tipPercentage = cocoTipperModel.tipPercentage
             )
+            Spacer(modifier = Modifier.height(16.dp))
+
             TotalMoney(
                 baseAmount = cocoTipperModel.baseAmount.toDoubleOrNull() ?: 0.0,
                 tipPercentage = cocoTipperModel.tipPercentage
