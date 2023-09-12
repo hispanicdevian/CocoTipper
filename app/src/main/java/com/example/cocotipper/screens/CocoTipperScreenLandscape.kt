@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.LocalTextStyle
@@ -17,9 +16,7 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
@@ -31,33 +28,58 @@ import com.example.cocotipper.screens.subscreens.TotalMoney
 import com.example.cocotipper.screens.subscreens.TotalTip
 import com.example.cocotipper.viewmodel.CocoTipperViewModel
 
-@OptIn(ExperimentalComposeUiApi::class, ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CocoTipperScreenLandscape(viewModel: CocoTipperViewModel) {
 
-    val keyboardController = LocalSoftwareKeyboardController.current
     val cocoTipperModel = viewModel.cocoTipperModel.value
 
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .padding(16.dp)
+            .padding(2.dp),
+        Alignment.Center
     ) {
 
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .align(Alignment.TopCenter),
+                .padding(2.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.SpaceEvenly
         ) {
+            Spacer(modifier = Modifier.height(2.dp))
 
-            Text("Coco Tipper",
+            Text(
+                "Coco Tipper",
                 fontSize = 30.sp,
                 fontWeight = FontWeight.Bold,
-                fontFamily = FontFamily.Cursive)
+                fontFamily = FontFamily.Cursive
+            )
+            Spacer(modifier = Modifier.height(6.dp))
 
-            Spacer(modifier = Modifier.height(8.dp))
+            TotalTip(
+                baseAmount = cocoTipperModel.baseAmount.toDoubleOrNull() ?: 0.0,
+                tipPercentage = cocoTipperModel.tipPercentage
+            )
+            Spacer(modifier = Modifier.height(20.dp))
+
+            TotalMoney(
+                baseAmount = cocoTipperModel.baseAmount.toDoubleOrNull() ?: 0.0,
+                tipPercentage = cocoTipperModel.tipPercentage
+            )
+            Spacer(modifier = Modifier.height(16.dp))
+
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceEvenly
+            ) {
+
+                TipButton(text = "15%", onClick = { viewModel.onTipPercentageChange(0.15) })
+                TipButton(text = "20%", onClick = { viewModel.onTipPercentageChange(0.20) })
+                TipButton(text = "25%", onClick = { viewModel.onTipPercentageChange(0.25) })
+            }
+            Spacer(modifier = Modifier.height(16.dp))
 
             OutlinedTextField(
                 value = cocoTipperModel.baseAmount,
@@ -70,39 +92,21 @@ fun CocoTipperScreenLandscape(viewModel: CocoTipperViewModel) {
                 keyboardOptions = KeyboardOptions.Default.copy(
                     keyboardType = KeyboardType.Number,
                     imeAction = ImeAction.Done
-                ),
-                keyboardActions = KeyboardActions(
-                    onDone = { keyboardController?.hide() }
                 )
             )
 
-            Spacer(modifier = Modifier.height(8.dp))
+            Spacer(modifier = Modifier.height(70.dp))
 
-            Row(
+            Box(
                 modifier = Modifier
-                    .fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceEvenly
+                    .fillMaxSize()
+                    .padding(bottom = 32.dp),
+                Alignment.Center
             ) {
-                TipButton(text = "15%", onClick = { viewModel.onTipPercentageChange(0.15) })
-                TipButton(text = "20%", onClick = { viewModel.onTipPercentageChange(0.20) })
-                TipButton(text = "25%", onClick = { viewModel.onTipPercentageChange(0.25) })
+
+                Spacer(modifier = Modifier.height(16.dp))
+
             }
-
-            Spacer(modifier = Modifier.height(8.dp))
-
-            TotalTip(
-                baseAmount = cocoTipperModel.baseAmount.toDoubleOrNull() ?: 0.0,
-                tipPercentage = cocoTipperModel.tipPercentage
-            )
-            Spacer(modifier = Modifier.height(16.dp))
-
-            TotalMoney(
-                baseAmount = cocoTipperModel.baseAmount.toDoubleOrNull() ?: 0.0,
-                tipPercentage = cocoTipperModel.tipPercentage
-            )
-
-            Spacer(modifier = Modifier.height(16.dp))
-
         }
     }
 }

@@ -51,6 +51,7 @@ fun CocoTipperScreenPortrait(viewModel: CocoTipperViewModel) {
                 .padding(16.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
+            Spacer(modifier = Modifier.height(20.dp))
 
             Text(
                 "Coco Tipper",
@@ -58,7 +59,29 @@ fun CocoTipperScreenPortrait(viewModel: CocoTipperViewModel) {
                 fontWeight = FontWeight.Bold,
                 fontFamily = FontFamily.Cursive
             )
+            Spacer(modifier = Modifier.height(50.dp))
 
+            TotalTip(
+                baseAmount = cocoTipperModel.baseAmount.toDoubleOrNull() ?: 0.0,
+                tipPercentage = cocoTipperModel.tipPercentage
+            )
+            Spacer(modifier = Modifier.height(20.dp))
+
+            TotalMoney(
+                baseAmount = cocoTipperModel.baseAmount.toDoubleOrNull() ?: 0.0,
+                tipPercentage = cocoTipperModel.tipPercentage
+            )
+            Spacer(modifier = Modifier.height(16.dp))
+
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceEvenly
+            ) {
+                TipButton(text = "15%", onClick = { viewModel.onTipPercentageChange(0.15) })
+                TipButton(text = "20%", onClick = { viewModel.onTipPercentageChange(0.20) })
+                TipButton(text = "25%", onClick = { viewModel.onTipPercentageChange(0.25) })
+            }
             Spacer(modifier = Modifier.height(16.dp))
 
             OutlinedTextField(
@@ -74,30 +97,8 @@ fun CocoTipperScreenPortrait(viewModel: CocoTipperViewModel) {
                     imeAction = ImeAction.Done
                 )
             )
-            Spacer(modifier = Modifier.height(16.dp))
 
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceEvenly
-            ) {
-                TipButton(text = "15%", onClick = { viewModel.onTipPercentageChange(0.15) })
-                TipButton(text = "20%", onClick = { viewModel.onTipPercentageChange(0.20) })
-                TipButton(text = "25%", onClick = { viewModel.onTipPercentageChange(0.25) })
-            }
-            Spacer(modifier = Modifier.height(16.dp))
-
-            TotalTip(
-                baseAmount = cocoTipperModel.baseAmount.toDoubleOrNull() ?: 0.0,
-                tipPercentage = cocoTipperModel.tipPercentage
-            )
-            Spacer(modifier = Modifier.height(16.dp))
-
-            TotalMoney(
-                baseAmount = cocoTipperModel.baseAmount.toDoubleOrNull() ?: 0.0,
-                tipPercentage = cocoTipperModel.tipPercentage
-            )
-            Spacer(modifier = Modifier.height(100.dp))
+            Spacer(modifier = Modifier.height(70.dp))
 
             Box(
                 modifier = Modifier
