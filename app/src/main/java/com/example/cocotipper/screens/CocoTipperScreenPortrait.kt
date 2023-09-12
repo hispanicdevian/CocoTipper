@@ -1,6 +1,8 @@
 package com.example.cocotipper.screens
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -28,8 +30,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.cocotipper.R
 import com.example.cocotipper.screens.subscreens.TipButton
-import com.example.cocotipper.screens.subscreens.TotalMoney
-import com.example.cocotipper.screens.subscreens.TotalTip
+import com.example.cocotipper.model.TotalMoney
+import com.example.cocotipper.model.TotalTip
 import com.example.cocotipper.viewmodel.CocoTipperViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -108,9 +110,17 @@ fun CocoTipperScreenPortrait(viewModel: CocoTipperViewModel) {
             ) {
 
                 Image(
-                    painter = painterResource(R.drawable.coco_asset_extra), // Replace with your image resource ID
-                    contentDescription = "Image content description", // Provide a description for accessibility
-                    Modifier.size(120.dp)
+                    painter = painterResource(R.drawable.coco_asset_extra),
+                    contentDescription = null,
+                    modifier = Modifier
+                        .size(120.dp)
+                        .clickable(interactionSource = MutableInteractionSource(),
+                            indication = null,
+                            onClick = {
+                                // Reset your app values to default here
+                                viewModel.resetValuesToDefault()
+                            }
+                        )
                 )
             }
         }

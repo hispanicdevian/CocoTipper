@@ -1,4 +1,4 @@
-package com.example.cocotipper.screens.subscreens
+package com.example.cocotipper.model
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
