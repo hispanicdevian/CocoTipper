@@ -12,4 +12,4 @@ Tip Calculator App
 
 # Home/Launcher Icon:
 
-![image1-66](https://github.com/ianttta/CocoTipper/assets/135581442/651d89cb-4f2d-465f-90ba-f5157f545ea6)
+![CoinTipperDemoHomeImage](https://github.com/ianttta/CocoTipper/assets/135581442/986808e8-9e86-4a43-ab6f-e0daa4e882b3)
