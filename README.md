@@ -11,4 +11,5 @@ Tip Calculator App
 [CocoTipperDemoVideo.webm](https://github.com/ianttta/CocoTipper/assets/135581442/5a475e4e-eed6-43a3-8ec0-582db324d318)
 
 # Home/Launcher Icon:
-![coco_tipper_launcher-playstore](https://github.com/ianttta/CocoTipper/assets/135581442/9fea5620-7dcf-45f4-a616-a8193bf0a30d)
+
+![image1-66](https://github.com/ianttta/CocoTipper/assets/135581442/651d89cb-4f2d-465f-90ba-f5157f545ea6)
