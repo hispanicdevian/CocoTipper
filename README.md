@@ -3,8 +3,4 @@ Tip Calculator App
 - MVVM
 - Jetpack Compose
 # Demo:
-
-<p align="center">
-  <video width="460" height="300" src=[CocoTipperDemoVideo.webm](https://github.com/ianttta/CocoTipper/assets/135581442/2fa889a9-be5d-4be8-af20-ba856b4b5fb4)>
-</p>
-
+[CocoTipperDemoVideo.webm](https://github.com/ianttta/CocoTipper/assets/135581442/5a475e4e-eed6-43a3-8ec0-582db324d318)
