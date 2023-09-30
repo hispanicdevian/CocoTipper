@@ -5,5 +5,5 @@ Tip Calculator App
 # Demo:
 
 <p align="center">
-  <vid src="[CocoTipperDemoVideo.webm](https://github.com/ianttta/CocoTipper/assets/135581442/2fa889a9-be5d-4be8-af20-ba856b4b5fb4)">
+  <video src="[CocoTipperDemoVideo.webm](https://github.com/ianttta/CocoTipper/assets/135581442/2fa889a9-be5d-4be8-af20-ba856b4b5fb4)">
 </p>
