@@ -2,7 +2,8 @@
 Tip Calculator App
 - MVVM
 - Jetpack Compose
-- Logos done by me
+- Portrait & Landscape View
+- Logos Done By Me
 
 # Features:
 ![CocoTipperDemoImage](https://github.com/ianttta/CocoTipper/assets/135581442/0c318a54-18d0-4ccc-9e97-1298e9863ba9)
